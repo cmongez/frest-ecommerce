@@ -1,32 +1,114 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+    <router-view />
   </div>
 </template>
-
+<script>
+export default {
+  name: 'App',
+};
+</script>
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+body {
+  background-color: rgb(255, 255, 255);
+  font-family: 'Poppins', sans-serif;
+  max-width: 1150px;
+  margin: auto;
 }
 
-nav {
-  padding: 30px;
+.navbar-dark .navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+.navbar-dark .navbar-toggler {
+  border-color: white;
+}
+.card-price {
+  font-size: 14px;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+.sale {
+  color: red;
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+.old-price {
+  color: #999;
+  font-size: 12px;
+  font-weight: 400;
+  text-decoration: line-through;
+  margin-left: 3px;
+  display: inline-block;
+}
+
+.bg-bsale {
+  background-color: #fe6a00;
+}
+
+.btn-bsale:hover {
+  background-color: #fe6a008f;
+}
+a {
+  text-decoration: none;
+}
+
+.btn-nav:hover {
+  background-color: #ff862f;
+}
+
+/* 
+footer */
+
+.socialNetworks {
+  list-style: none;
+}
+.socialNetworks__item {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.socialNetworks__icon {
+  color: #ffffff;
+  font-size: 30px;
+}
+.socialNetworks__icon:hover {
+  color: #ffffffb0;
+}
+/* 
+  heart */
+
+:root {
+  --heigth: 12.5px;
+  --color: red;
+}
+.heart {
+  transform: rotate(45deg);
+  -webkit-animation: latir 0.5s ease-in-out infinite alternate;
+  animation: latir 0.5s ease-in-out infinite alternate;
+}
+.heart,
+.heart:after,
+.heart:before {
+  height: var(--heigth);
+  width: var(--heigth);
+  background-color: var(--color);
+}
+.heart:after,
+.heart:before {
+  content: '';
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  transform: translateY(-6.75px);
+}
+.heart:after {
+  transform: translateX(-6.75px);
+}
+@-webkit-keyframes latir {
+  to {
+    transform: rotate(45deg) scale(1.2);
+  }
+}
+@keyframes latir {
+  to {
+    transform: rotate(45deg) scale(1.2);
   }
 }
 </style>
