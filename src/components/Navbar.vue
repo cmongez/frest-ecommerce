@@ -1,7 +1,7 @@
 <template>
   <nav class="nav navbar navbar-expand-lg navbar-dark bg-bsale mb-4">
     <div class="nav__container container-fluid">
-      <a class="navbar-brand d-md-none nav__title text-white">Categorias</a>
+      <a class="navbar-brand d-lg-none nav__title text-white">Categorias</a>
       <button
         class="navbar-toggler nav__button"
         type="button"
@@ -16,12 +16,14 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul id="navCategories" class="text-center navbar-nav mx-auto align-items-center h5">
           <li class="nav-item btn-nav">
-            <a class="nav-link text-white" @click="getAllProducts()"> todos los productos </a>
+            <router-link to="/products" class="nav-link text-white" @click="getAllProducts()">
+              Todos los productos
+            </router-link>
           </li>
-          <li v-for="(item, index) in categories" :key="index" class="nav-item btn-nav">
+          <li v-for="(item, index) in getCategories" :key="index" class="nav-item btn-nav">
             <a
               class="nav-link text-white"
-              @click="getProductsByCategory(item.id), shareData(item.name)"
+              @click="getProductsByCategory(item.id), shareData(item.id)"
               id="${category.id}"
               >{{ item.name }}</a
             >
@@ -34,7 +36,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import { mapState } from 'vuex';
+
 export default {
   name: 'Navbar',
   data() {
@@ -43,7 +45,6 @@ export default {
 
   computed: {
     ...mapGetters(['getCategories']),
-    ...mapState(['categories']),
   },
   methods: {
     renderNavbar() {
@@ -56,8 +57,7 @@ export default {
       this.$store.dispatch('getAllProducts');
     },
     shareData(path) {
-      console.log(path);
-      if (this.$route.name !== path) {
+      if (this.$route.params.id !== path) {
         this.$router.push({
           name: 'category',
           params: { datos: path, id: path, meta: 'hola' },

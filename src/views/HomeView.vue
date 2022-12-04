@@ -1,14 +1,22 @@
 
 <template>
-  <ProductsContainer />
+  <div>
+    <HeroBanner />
+    <ProductsHome />
+  </div>
 </template>
 
 <script>
-import ProductsContainer from '@/components/ProductsContainer.vue';
+import HeroBanner from '@/components/HeroBanner.vue';
+import ProductsHome from '@/components/ProductsHome.vue';
 export default {
   name: 'HomeView',
   components: {
-    ProductsContainer,
+    HeroBanner,
+    ProductsHome,
   },
 };
 </script>
+
+<style>
+</style>

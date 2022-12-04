@@ -5,7 +5,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    URL: 'https://bsale-backend-cesar-mongez.herokuapp.com',
+    // URL: 'https://bsale-backend-ic8a.onrender.com',
+    URL: 'http://localhost:3001',
     categories: [],
     products: [],
     product: {},
@@ -14,6 +15,17 @@ export default new Vuex.Store({
   },
   getters: {
     getCategories(state) {
+      state.categories.map((item) => {
+        const firstLetter = item.name.charAt(0);
+
+        const firstLetterCap = firstLetter.toUpperCase();
+
+        const remainingLetters = item.name.slice(1);
+
+        const capitalizedWord = firstLetterCap + remainingLetters;
+        item.name = capitalizedWord;
+      });
+
       return state.categories;
     },
     getProducts(state) {
@@ -33,6 +45,11 @@ export default new Vuex.Store({
     },
     getProduct(state) {
       return state.product;
+    },
+    getNewArrivals(state) {
+      const reverse = [...state.products].reverse();
+      const newArrivals = reverse.slice(0, 4);
+      return newArrivals;
     },
   },
   mutations: {

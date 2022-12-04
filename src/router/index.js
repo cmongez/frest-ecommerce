@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import HomeView from '../views/HomeView.vue';
+import CategoryView from '../views/CategoryView.vue';
+import ProductsView from '../views/ProductsView.vue';
 import LayoutView from '../views/LayoutView.vue';
 import WelcomeView from '../views/WelcomeView.vue';
 import CartView from '../views/CartView.vue';
@@ -24,9 +26,14 @@ const routes = [
         component: HomeView,
       },
       {
+        path: '/products',
+        name: 'products',
+        component: ProductsView,
+      },
+      {
         path: '/category/:id',
         name: 'category',
-        component: HomeView,
+        component: CategoryView,
       },
       {
         path: '/cart',
