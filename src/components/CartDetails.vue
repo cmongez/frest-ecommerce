@@ -1,10 +1,12 @@
 <template>
   <div>
     <div v-if="!cart.length">
+      <h2 class="mb-2">Carrito</h2>
       <p>Su carrito esta vacio</p>
       <router-link to="/products" class="btn btn-bsale bg-bsale text-white">ir a productos</router-link>
     </div>
     <div v-else>
+      <h2 class="mb-2">Carrito</h2>
       <div>
         <table class="table">
           <thead class="d-none">

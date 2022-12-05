@@ -6,6 +6,7 @@ import ProductsView from '../views/ProductsView.vue';
 import LayoutView from '../views/LayoutView.vue';
 import WelcomeView from '../views/WelcomeView.vue';
 import CartView from '../views/CartView.vue';
+import ProductDetailView from '../views/ProductDetailView.vue';
 
 Vue.use(VueRouter);
 
@@ -29,6 +30,11 @@ const routes = [
         path: '/products',
         name: 'products',
         component: ProductsView,
+      },
+      {
+        path: '/product/:id',
+        name: 'productdetail',
+        component: ProductDetailView,
       },
       {
         path: '/category/:id',

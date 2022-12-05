@@ -1,8 +1,10 @@
-
+import ProductCounter from '@/components/ProductCounter.vue';
 <template>
-  <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-    <div class="card d-flex h-100">
-      <div @click="shareData(product), openDetails()" class="card__img">
+  <div>
+    <h2>{{ product.name }}</h2>
+
+    <div class="d-flex flex-column">
+      <div class="card__img">
         <img
           v-if="product.url_image == '' || product.url_image == null"
           src="../assets/img-not-available.png"
@@ -10,20 +12,18 @@
           alt="..."
         /><img v-else :src="product.url_image" class="card__img__item" alt="..." />
       </div>
-      <div class="card-body d-flex flex-column justify-content-end">
-        <p class="card-title">{{ product.name }}</p>
-
+      <div class="d-flexflex-column justify-content-end">
         <div v-if="product.discount > 0" class="card-price d-flex justify-content-between align-items-center">
-          <div class="d-flex flex-column">
+          <div class="d-flex">
+            <span class="text-dark card-price">${{ ((100 - product.discount) * product.price) / 100 }} </span>
             <span class="old-price me-1">${{ product.price }} </span>
-            <span class="text-dark">${{ ((100 - product.discount) * product.price) / 100 }} </span>
           </div>
           <span class="sale">OFERTA -{{ product.discount }}% </span>
         </div>
 
         <div v-else class="card-price">${{ product.price }}</div>
 
-        <ProductCounter :product="product" />
+        <div class="counter-detail mx-auto mt-2"><ProductCounter :product="product" /></div>
       </div>
     </div>
   </div>
@@ -33,26 +33,19 @@
 import ProductCounter from '@/components/ProductCounter.vue';
 
 export default {
-  name: 'ProductCard',
-  components: {
-    ProductCounter,
-  },
+  name: 'ProductDetail',
   props: {
-    product: {
+    prod: {
       type: Object,
     },
   },
-  methods: {
-    openDetails() {
-      this.$store.dispatch('openDetails', this.product);
-    },
-    shareData(product) {
-      if (this.$route.params.id !== product.id) {
-        this.$router.push({
-          name: 'productdetail',
-          params: { id: product.id },
-        });
-      }
+  components: {
+    ProductCounter,
+  },
+  computed: {
+    product() {
+      if (this.prod) console.log();
+      return this.$store.getters.getProduct;
     },
   },
 };
@@ -61,15 +54,13 @@ export default {
 <style lang="scss" scoped>
 .card {
   &__img {
-    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    &__item {
-      max-height: 230px;
-      max-width: 100%;
-    }
   }
+}
+.counter-detail {
+  max-width: 300px;
 }
 .card-price {
   font-size: 18px;
@@ -83,4 +74,5 @@ export default {
   display: inline-block;
 }
 </style>
+
 

@@ -6,7 +6,9 @@ import router from './router';
 import store from './store';
 
 Vue.config.productionTip = false;
-
+// Vue.config.errorHandler = (msg, vm, info) => {
+//   alert(info);
+// };
 new Vue({
   router,
   store,

@@ -80,8 +80,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.carousel-inner {
-}
 .carousel-item img {
   border-radius: 0.25rem;
   overflow: hidden;

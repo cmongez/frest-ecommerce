@@ -1,9 +1,9 @@
 <template>
   <div class="products container-fluid">
-    <div id="productsContainer" class="row d-flex wrap justify-content-evenly">
+    <Loader v-if="!info.length" />
+    <div v-else id="productsContainer" class="row d-flex wrap justify-content-evenly">
       <div v-if="info.length === 0">No hay productos por ese nombre</div>
       <ProductCard v-for="(product, index) in info" :key="index" :product="product" />
-      <ProductDetails :prod="getProduct" />
     </div>
 
     <div id="modalContainer"></div>
@@ -12,7 +12,7 @@
 
 <script>
 import ProductCard from '@/components/ProductCard.vue';
-import ProductDetails from '@/components/ProductDetails.vue';
+import Loader from '@/components/Loader.vue';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -25,7 +25,7 @@ export default {
   },
   components: {
     ProductCard,
-    ProductDetails,
+    Loader,
   },
   computed: {
     ...mapGetters(['getProduct']),

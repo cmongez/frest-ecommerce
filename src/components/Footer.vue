@@ -59,4 +59,61 @@ export default {
 footer {
   border-radius: 0.25rem;
 }
+/* 
+footer */
+
+.socialNetworks {
+  list-style: none;
+}
+.socialNetworks__item {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.socialNetworks__icon {
+  color: #ffffff;
+  font-size: 30px;
+}
+.socialNetworks__icon:hover {
+  color: #ffffffb0;
+}
+/* 
+  heart */
+
+:root {
+  --heigth: 12.5px;
+  --color: red;
+}
+.heart {
+  transform: rotate(45deg);
+  -webkit-animation: latir 0.5s ease-in-out infinite alternate;
+  animation: latir 0.5s ease-in-out infinite alternate;
+}
+.heart,
+.heart:after,
+.heart:before {
+  height: var(--heigth);
+  width: var(--heigth);
+  background-color: var(--color);
+}
+.heart:after,
+.heart:before {
+  content: '';
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  transform: translateY(-6.75px);
+}
+.heart:after {
+  transform: translateX(-6.75px);
+}
+@-webkit-keyframes latir {
+  to {
+    transform: rotate(45deg) scale(1.2);
+  }
+}
+@keyframes latir {
+  to {
+    transform: rotate(45deg) scale(1.2);
+  }
+}
 </style>

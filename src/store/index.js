@@ -43,6 +43,7 @@ export default new Vuex.Store({
     getNewArrivals(state) {
       const reverse = [...state.products].reverse();
       const newArrivals = reverse.slice(0, 4);
+
       return newArrivals;
     },
     getSales(state) {
@@ -51,6 +52,22 @@ export default new Vuex.Store({
 
       return firstSales;
     },
+    getCheaperProducts(state) {
+      const cheaperProducts = [...state.products];
+      console.log();
+      cheaperProducts.sort((a, b) => {
+        if (a.price == b.price) {
+          return 0;
+        }
+        if (a.price < b.price) {
+          return -1;
+        }
+        return 1;
+      });
+
+      return cheaperProducts.slice(0, 4);
+    },
+
     cartItemCount(state) {
       let total = 0;
       state.cart.forEach((item) => (total += item.quantity));

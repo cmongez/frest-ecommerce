@@ -75,4 +75,7 @@ export default {
 .nav {
   border-radius: 0.25rem;
 }
+.nav-item a {
+  cursor: pointer;
+}
 </style>
