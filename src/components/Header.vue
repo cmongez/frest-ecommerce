@@ -1,9 +1,14 @@
 <template>
-  <header class="header row mt-3">
-    <router-link to="/" class="w-50 h2 logo">FREST</router-link>
+  <header class="header d-flex justify-content-between align-items-center mt-3 mb-2">
+    <router-link to="/" class="h2 logo m-0 d-flex justify-content-center align-items-center"
+      >FREST <img class="beer ms-2" src="../assets/beer.png" alt=""
+    /></router-link>
     <ProductSearcher />
-    <div class="d-flex justify-content-end">
-      <router-link to="/cart" class="btn btn-bsale bg-bsale text-white mb-2">{{ cartItemCount }} Carrito</router-link>
+    <div class="">
+      <router-link to="/cart" class="mb-2 d-flex justify-content-center align-items-center"
+        ><span v-if="cartItemCount" class="cartItemCount">{{ cartItemCount }}</span
+        ><img class="cart" src="../assets/cart.png" alt=""
+      /></router-link>
     </div>
   </header>
 </template>
@@ -27,5 +32,15 @@ export default {
 .logo {
   text-decoration: none;
   color: #fe6a00;
+  font-weight: bold;
+  vertical-align: middle;
+}
+.cart,
+.beer {
+  width: 28px;
+}
+.cartItemCount {
+  color: black;
+  font-size: 20px;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <div class="input-group input-group-sm mb-3 w-50">
+  <div class="input-group input-group-sm w-50">
     <input
-      @keyup="searchProducts()"
+      @keyup="searchProducts(), shareData()"
       type="text"
       id="inputSearch"
       placeholder="Buscar..."
@@ -32,6 +32,15 @@ export default {
   methods: {
     searchProducts() {
       this.$store.dispatch('searchProducts', this.product);
+    },
+    shareData(path) {
+      console.log(this.$route);
+      if (this.$route.name !== 'products') {
+        this.$router.push({
+          name: 'products',
+          params: { datos: path, id: path, meta: 'hola' },
+        });
+      }
     },
   },
 };

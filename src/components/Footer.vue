@@ -56,4 +56,7 @@ export default {
 </script>
 
 <style>
+footer {
+  border-radius: 0.25rem;
+}
 </style>

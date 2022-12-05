@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
+    <div id="carouselExampleCaptions" class="carousel slide mb-3" data-bs-ride="carousel">
+      <div class="carousel-indicators d-none m-0 p-0">
         <button
           type="button"
           data-bs-target="#carouselExampleCaptions"
@@ -24,81 +24,24 @@
         ></button>
       </div>
       <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="100000">
-          <img src="../assets/beer-banner.jpg" class="d-block w-100" alt="..." />
-          <div class="carousel-caption">
+        <div
+          v-for="(image, index) in images"
+          :key="index"
+          :class="index == 0 ? 'carousel-item active' : 'carousel-item'"
+          data-bs-interval="3000"
+        >
+          <img :src="require('../assets/' + image)" class="d-block w-100" alt="..." />
+
+          <div class="carousel-caption m-0 p-0">
             <div class="liquors-banner__info">
               <h5 class="liquors-banner__info__title">Bienvenido a FREST</h5>
               <p class="liquors-banner__info__paragraph d-none d-sm-block">
                 Tus productos favoritos a un click de distancia
               </p>
 
-              <div class="align-self-end">
-                <router-link to="/products" class="btn btn-bsale bg-bsale text-white mb-2"
-                  ><svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M5.5 12.5H19.5M19.5 12.5L15 8M19.5 12.5L15 17"
-                      stroke="white"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  ver productos</router-link
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item" data-bs-interval="100000">
-          <img src="../assets/liquors-banner.png" class="d-block w-100" alt="..." />
-          <div class="carousel-caption">
-            <div class="liquors-banner__info">
-              <h5 class="liquors-banner__info__title">Bienvenido a FREST</h5>
-              <p class="liquors-banner__info__paragraph d-none d-sm-block">
-                Tus productos favoritos a un click de distancia
-              </p>
-
-              <div class="align-self-end">
-                <router-link to="/products" class="btn btn-bsale bg-bsale text-white mb-2"
-                  ><svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M5.5 12.5H19.5M19.5 12.5L15 8M19.5 12.5L15 17"
-                      stroke="white"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  ver productos</router-link
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item" data-bs-interval="100000">
-          <img src="../assets/beer-banner.jpg" class="d-block w-100" alt="..." />
-          <div class="carousel-caption">
-            <div class="liquors-banner__info">
-              <h5 class="liquors-banner__info__title">Bienvenido a FREST</h5>
-              <p class="liquors-banner__info__paragraph d-none d-sm-block">
-                Tus productos favoritos a un click de distancia
-              </p>
-
-              <div class="align-self-end">
-                <router-link to="/products" class="btn btn-bsale bg-bsale text-white mb-2"
-                  ><svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M5.5 12.5H19.5M19.5 12.5L15 8M19.5 12.5L15 17"
-                      stroke="white"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  ver productos</router-link
-                >
-              </div>
+              <router-link to="/products" class="btn btn-bsale bg-bsale text-white mb-2"
+                ><img class="arrow" src="../assets/arrow.svg" />ir a productos
+              </router-link>
             </div>
           </div>
         </div>
@@ -128,21 +71,30 @@
 <script>
 export default {
   name: 'HeroBanner',
+  data() {
+    return {
+      images: ['beer-banner.jpg', 'liquors-banner.png', 'ron-banner.jpg'],
+    };
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.carousel-item img {
-  overflow: hidden;
-
-  min-height: 200px;
+.carousel-inner {
 }
+.carousel-item img {
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+.carousel-caption a {
+  line-height: 18px;
+}
+
 .liquors-banner {
   border-radius: 24px;
 
   background-size: cover;
   &__info {
-    padding: 12px;
     height: 100%;
     background: rgba(222, 222, 222, 0.7);
     backdrop-filter: blur(2.5px);

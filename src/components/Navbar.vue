@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav navbar navbar-expand-lg navbar-dark bg-bsale mb-4">
+  <nav class="nav navbar navbar-expand-lg navbar-dark bg-bsale mb-3">
     <div class="nav__container container-fluid">
       <a class="navbar-brand d-lg-none nav__title text-white">Categorias</a>
       <button
@@ -23,7 +23,7 @@
           <li v-for="(item, index) in getCategories" :key="index" class="nav-item btn-nav">
             <a
               class="nav-link text-white"
-              @click="getProductsByCategory(item.id), shareData(item.id)"
+              @click="getProductsByCategory(item.id), shareData(item.id, item.name)"
               id="${category.id}"
               >{{ item.name }}</a
             >
@@ -56,11 +56,11 @@ export default {
     getAllProducts() {
       this.$store.dispatch('getAllProducts');
     },
-    shareData(path) {
-      if (this.$route.params.id !== path) {
+    shareData(id, name) {
+      if (this.$route.params.id !== id) {
         this.$router.push({
           name: 'category',
-          params: { datos: path, id: path, meta: 'hola' },
+          params: { data: name, id: id, meta: name },
         });
       }
     },
@@ -72,4 +72,7 @@ export default {
 </script>
 
 <style>
+.nav {
+  border-radius: 0.25rem;
+}
 </style>

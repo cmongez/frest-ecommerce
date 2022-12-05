@@ -8,6 +8,7 @@ export default new Vuex.Store({
     // URL: 'https://bsale-backend-ic8a.onrender.com',
     URL: 'http://localhost:3001',
     categories: [],
+    actualCategoryId: 0,
     products: [],
     product: {},
     cart: [],
@@ -28,8 +29,27 @@ export default new Vuex.Store({
 
       return state.categories;
     },
+    getActualCategory(state) {
+      const category = state.categories.find((item) => item.id == state.actualCategoryId);
+
+      return category ? category.name : category;
+    },
     getProducts(state) {
       return state.products;
+    },
+    getProduct(state) {
+      return state.product;
+    },
+    getNewArrivals(state) {
+      const reverse = [...state.products].reverse();
+      const newArrivals = reverse.slice(0, 4);
+      return newArrivals;
+    },
+    getSales(state) {
+      const sales = state.products.filter((item) => item.discount > 0);
+      const firstSales = sales.slice(0, 4);
+
+      return firstSales;
     },
     cartItemCount(state) {
       let total = 0;
@@ -43,14 +63,6 @@ export default new Vuex.Store({
 
       return total;
     },
-    getProduct(state) {
-      return state.product;
-    },
-    getNewArrivals(state) {
-      const reverse = [...state.products].reverse();
-      const newArrivals = reverse.slice(0, 4);
-      return newArrivals;
-    },
   },
   mutations: {
     GET_ALL_CATEGORIES(state, response) {
@@ -60,9 +72,11 @@ export default new Vuex.Store({
       state.products = response;
     },
 
-    GET_PRODUCTS_BY_CATEGORY(state, response) {
+    GET_PRODUCTS_BY_CATEGORY(state, { response, id }) {
       state.products = response;
+      state.actualCategoryId = id;
     },
+
     //CART MUTATIONS
     ADD_TO_CART(state, { product, quantity }) {
       let productInCart = state.cart.find((item) => item.product.id === product.id);
@@ -96,6 +110,7 @@ export default new Vuex.Store({
     async getAllCategories({ commit, state }) {
       const request = await fetch(`${state.URL}/v1/categories/`);
       const response = await request.json();
+
       commit('GET_ALL_CATEGORIES', response);
     },
     async getAllProducts({ commit, state }) {
@@ -105,9 +120,10 @@ export default new Vuex.Store({
     },
     async getProductsByCategory({ commit, state }, id) {
       const request = await fetch(`${state.URL}/v1/products/category/${id}`);
+
       const response = await request.json();
 
-      commit('GET_PRODUCTS_BY_CATEGORY', response);
+      commit('GET_PRODUCTS_BY_CATEGORY', { response, id });
     },
 
     //CART ACTIONS

@@ -9,10 +9,12 @@ export default {
 };
 </script>
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;700;900&display=swap');
 body {
   background-color: rgb(255, 255, 255);
   font-family: 'Poppins', sans-serif;
-  max-width: 1450px;
+  max-width: 1200px;
   margin: auto;
 }
 
@@ -22,21 +24,17 @@ body {
 .navbar-dark .navbar-toggler {
   border-color: white;
 }
-.card-price {
-  font-size: 14px;
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th {
+  border-style: none;
 }
 
 .sale {
   color: red;
-}
-
-.old-price {
-  color: #999;
-  font-size: 12px;
-  font-weight: 400;
-  text-decoration: line-through;
-  margin-left: 3px;
-  display: inline-block;
 }
 
 .bg-bsale {
