@@ -5,8 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    // URL: 'https://bsale-backend-ic8a.onrender.com',
-    URL: 'http://localhost:3001',
+    URL: 'https://bsalebackend-production-47f1.up.railway.app',
     categories: [],
     actualCategoryId: 0,
     products: [],
@@ -67,12 +66,13 @@ export default new Vuex.Store({
 
       return cheaperProducts.slice(0, 4);
     },
-
+    //returns the number of items in the cart
     cartItemCount(state) {
       let total = 0;
       state.cart.forEach((item) => (total += item.quantity));
       return total;
     },
+
     cartTotalPrice(state) {
       let total = 0;
 
@@ -171,6 +171,7 @@ export default new Vuex.Store({
       commit('SEARCH_PRODUCTS', response, inputValue);
     },
     //DETAILS
+    // Previously there was a modal with the item details, now it sends to the item details page.
     openDetails({ commit, state }, product) {
       commit('OPEN_DETAILS', product);
     },

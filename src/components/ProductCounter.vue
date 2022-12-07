@@ -34,7 +34,6 @@ export default {
 
     addToCart() {
       if (this.counter) {
-        console.log('ff');
         this.$store.dispatch('addProductToCart', {
           product: this.product,
           quantity: this.counter,

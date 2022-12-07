@@ -34,7 +34,6 @@ export default {
       this.$store.dispatch('searchProducts', this.product);
     },
     shareData(path) {
-      console.log(this.$route);
       if (this.$route.name !== 'products') {
         this.$router.push({
           name: 'products',
