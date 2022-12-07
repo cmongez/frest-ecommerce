@@ -1,5 +1,5 @@
 ## Ecommerce - FREST (Frontend)
-
+https://frest-ecommerce.netlify.app/
 <center><img src="https://i.ibb.co/nnL1WdQ/FREST.png" width="70%" /></center>
 
 
@@ -16,7 +16,8 @@ Este proyecto corresponde a la segunda parte de un proyecto persona. Es la parte
 Desarrollado utilizando  **HTML**, **CSS**, **JavaScript**, **JavaScript**, **Bootstrap**, **SASS**, **Vue**, **Vuex** y **Font Awesome**. Se implentan funciones que llaman a la base de datos a través de diferentes endpoint utilizando solicitudes HTTP de tipo **GET** a traves de la API creada anteriormente.
 
 ### Deploy: 
-Se debe descargar el proyecto y escribir en consola npm run serve.
+
+[Ir al sitio ](https://frest-ecommerce.netlify.app/)
 
 ### Caracteristicas del proyecto
 
