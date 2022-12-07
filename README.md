@@ -13,7 +13,7 @@ Este proyecto corresponde a la segunda parte de un proyecto persona. Es la parte
 
 ## Cliente - ECOMMERCE
 
-Desarrollado utilizando  **HTML**, **CSS**, **JavaScript**, **JavaScript**, **Bootstrap**, **SASS**, **Vue**, **Vuex** y **Font Awesome**. Se implentan funciones que llaman a la base de datos a través de diferentes endpoint utilizando solicitudes HTTP de tipo **GET** a traves de la API creada anteriormente.
+Desarrollado utilizando  **HTML**, **CSS**, **JavaScript**, **Bootstrap**, **SASS**, **Vue**, **Vuex** y **Font Awesome**. Se implentan funciones que llaman a la base de datos a través de diferentes endpoint utilizando solicitudes HTTP de tipo **GET** a traves de la API creada anteriormente.
 
 ### Deploy: 
 
