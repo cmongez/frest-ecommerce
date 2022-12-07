@@ -33,7 +33,8 @@ Se debe descargar el proyecto y escribir en consola npm run serve.
 | Recursos utilizados       | Enlace                                                                              |
 | ------------------------- | ----------------------------------------------------------------------------------- |
 | Bootstrap 5.2             | [Ir a web ](https://getbootstrap.com/docs/5.2/getting-started/introduction/)        |
-| Font Awesome              | [Ir a web ](https://fontawesome.com/)                                        |
+| Font Awesome              | [Ir a web ](https://fontawesome.com/)                                               |
+| Whatsapp                  | [Ir a web ](https://www.whatsapp.com/)                                              |
 
 ## Experiencia Bsale
 Dado que he realizado anteriormente Ecommerces se me hizo facil crear la interfaz y realizar las peticiones fetch.
