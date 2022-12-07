@@ -45,4 +45,4 @@ Debido a que la cantidad de productos no es mucha, se decidio no implementar pag
 <center><img src="https://i.ibb.co/nnL1WdQ/FREST.png" width="70%" /></center>
 
 ### Vista Mobile
-<img src="./src/img/bsalemobile.png"/>
+<img src="https://i.ibb.co/vk9Z1q5/frest-mobile.png"/>
