@@ -6,7 +6,7 @@
 
 ## Consideraciones
 
-Este proyecto corresponde a la segunda parte de un proyecto persona. Es la parte frontend de un ecommerce donde se implementó el consumo de una API REST (creada en la parte uno del challenge de BSALE [Ir al repositorio ](https://getbootstrap.com/docs/5.2/getting-started/introduction/)), tomando los siguientes puntos en consideración:
+Este proyecto corresponde a la segunda parte de un proyecto persona. Es la parte frontend de un ecommerce donde se implementó el consumo de una API REST (creada en la parte uno del challenge de BSALE [Ir al repositorio ](https://github.com/cmongez/bsale_backend)), tomando los siguientes puntos en consideración:
 
 * Despliega productos agrupados por la categoría a la que pertenecen.
 * Contiene buscador de productos.
