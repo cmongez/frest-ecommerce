@@ -8,6 +8,7 @@
 export default {
   name: 'App',
   errorCaptured(err, vm, info) {
+    console.log(info);
     this.$refs.err.innerHTML = 'Ha ocurrido un error, si el problema persiste contactanos. ';
   },
 };

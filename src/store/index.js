@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    URL: 'https://bsalebackend-production-47f1.up.railway.app',
+    URL: 'https://bsale-backend-ic8a.onrender.com',
     categories: [],
     actualCategoryId: 0,
     products: [],
